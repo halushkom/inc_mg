@@ -24,9 +24,11 @@ class GameMachine{
     //метод для відправки грошей в загальну касу
     pushMoneyToBank(number){
         if (number<=this.GameMachineBudget){
-            this.number -= number
+            this.GameMachineBudget -= number
         }
+        return number
     }
+
     //метод добавляє гроші в автомат
     addMoneyToGameMachine(number){
         this.GameMachineBudget += number
@@ -108,16 +110,17 @@ class SuperAdmin extends User{
     }
     getMoneyFromCasino(number){
         const machines = [...this.casino.machines]
-        let sum = 0
-        for (let i = 0; i< machines.length; i++){
-            sum+= machines[i].GameMachineBudget
+        let sorted = machines.sort(elem => b.getMoney-a.getMoney)
+
+        for (let i = 0; i< sorted.length; i++){
+            if (number>= sorted[i].getMoney){
+                number = number - sorted[i].getMoney
+                sorted[i].pushMoneyToBank(sorted[i].getMoney)
+            }
+            this.addMoneyToGameMachine(number)
+            return number
         }
-        return sum
-        if (this.casino >=number){
-            return this.money += sum
-        }else {
-            console.log('Not enough money')
-        }
+
     }
     // метод добавляє гроші в ігровий автомат
     addMoneyToGameMachine(id, money){
