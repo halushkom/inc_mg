@@ -174,7 +174,7 @@ class SuperAdmin extends User{
 
 
 
-const admin = new SuperAdmin('Nick', 10000)
+/*const admin = new SuperAdmin('Nick', 10000)
 //console.log(admin)
 const casino = admin.addCasino("Lviv")
 //console.log(casino)
@@ -194,3 +194,4 @@ user.play(10)
 console.log(user)
 //admin.getMoneyFromCasino(200)
 console.log(casino.getMoney)
+*/
